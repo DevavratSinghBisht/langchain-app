@@ -1,0 +1,9 @@
+TEXT_FILE_PATH = './document.txt'
+
+TEXT_SPLITTER_CHUNK_SIZE = 1000
+TEXT_SPLITTER_CHUNK_OVERLAP = 0
+
+HUGGINGFACE_MODELNAME = "google/flan-t5-base"
+HUGGINGFACE_MODEL_KWARGS = {"temperature":0, "max_length":512}
+
+LANGCHAIN_QNA_CHAIN_TYPE = "stuff"

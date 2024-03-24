@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import json
 
+from config import BACKED_URL
+
 with st.sidebar:
     st.title('Chatbot')
 
@@ -18,11 +20,12 @@ def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
-# Function for generating LLaMA2 response
-def generate_llama2_response(prompt_input):
-    response = requests.post(f"http://127.0.0.1:8000/chat",
-                             json = {"text": "StreamlitText"})
+# Function for calling backend
+def get_response(prompt_input):
+    response = requests.post(BACKED_URL,
+                             json = {"query": prompt_input})
     response = json.loads(response.content.decode())
+    print(response)
     return response['response']
 
 # User-provided prompt
@@ -35,7 +38,7 @@ if prompt := st.chat_input():
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = generate_llama2_response(prompt)
+            response = get_response(prompt)
             placeholder = st.empty()
             full_response = ''
             for item in response:
