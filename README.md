@@ -1,6 +1,6 @@
 # Langchain Application
 
-Used Streamlit, FastAPI and Langchain for creating a Question Answering application. Dockerized the application for deployment.
+Created a Question Answering application using Streamlit, FastAPI and Langchain.
 
 
 ## For running the app locally without docker.
