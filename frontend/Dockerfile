@@ -1,4 +1,4 @@
-FROM python:3.12
+FROM python:3.10
 WORKDIR /frontend
 COPY . /frontend
 RUN pip install --no-cache-dir --upgrade -r /frontend/requirements.txt

@@ -1,4 +1,4 @@
-FROM python:3.12
+FROM python:3.10
 WORKDIR /backend
 COPY . /backend
 RUN pip install --no-cache-dir --upgrade -r /backend/requirements.txt
