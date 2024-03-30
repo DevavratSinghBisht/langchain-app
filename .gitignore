@@ -1,3 +1,7 @@
+# Document Store
+backend/document_store/faiss_index/**
+backend/document_store/**.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

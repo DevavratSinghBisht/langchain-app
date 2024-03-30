@@ -1,13 +1,27 @@
 import inference
-from pydantic import BaseModel
-from fastapi import FastAPI
+from data_models import QueryModel, AnswerModel, HealthModel
 
-class ChatModel(BaseModel):
-    query: str
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-@app.post('/chat')
-async def chat(query: ChatModel) -> dict[str, str]:
+origins = ['http://localhost:8501',]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+@app.get('/')
+def health_check() -> HealthModel:
+    return HealthModel()
+
+@app.post('/query')
+async def query(query: QueryModel) -> AnswerModel:
     answer = await inference.get_answer(query.query)
-    return {'response': answer}
+    response = AnswerModel(**query.model_dump(), answer=answer)
+    return response

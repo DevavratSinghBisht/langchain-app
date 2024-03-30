@@ -2,6 +2,11 @@
 
 Created a Question Answering application using Streamlit, FastAPI and Langchain.
 
+## Setup
+
+1. Create a `.env` file in the backend directory and set your `HUGGINGFACEHUB_API_TOKEN` inside it.
+2. Initialize document store and create a FAISS index using `backend/document_store/initialize.py`or use `backend/document_store/initialize.ipynb` if you want to parallely explore the code.
+
 ## For running the app Using Docker
 
 ### 1. Using docker compose

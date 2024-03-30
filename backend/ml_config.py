@@ -1,4 +1,4 @@
-TEXT_FILE_PATH = './document.txt'
+FAISS_INDEX_PATH = "document_store/faiss_index"
 
 TEXT_SPLITTER_CHUNK_SIZE = 1000
 TEXT_SPLITTER_CHUNK_OVERLAP = 0
