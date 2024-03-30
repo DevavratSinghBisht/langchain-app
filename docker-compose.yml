@@ -1,13 +1,6 @@
-version: "3"
+version: "3.8"
 
 services:
-
-  frontend_service:
-    build:
-      dockerfile: Dockerfile
-      context: ./frontend
-    ports:
-      - "8501:8501"
 
   backend_service:
     build:
@@ -15,3 +8,30 @@ services:
       context: ./backend
     ports:
       - "8000:8000"
+    networks:
+      - langchain_network
+    container_name: fastapi_backend
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /backend
+
+  frontend_service:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    depends_on:
+      - backend_service
+    ports:
+      - "8501:8501"
+    networks:
+      - langchain_network
+    container_name: streamlit_fronend
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /frontend
+
+networks:
+  langchain_network:
+    driver: bridge
