@@ -25,3 +25,8 @@ Cd into the repo and run `docker compose up`
 3. Use another terminal to `cd backend` and run `uvicorn main:app --reload`
 4. Frontend should be available at `localhost:8501` 
 5. Backend should be available at `localhost:8000` and the swagger documentation can be seen at `localhost:8080/docs`
+
+## Frontend
+Once the appliation is hosted succesfully, it can be accessed at `localhost:8501`:
+
+![alt text](media/frontend.png)

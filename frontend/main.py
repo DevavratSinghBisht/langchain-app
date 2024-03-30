@@ -5,7 +5,7 @@ import json
 from config import BACKED_URL
 
 with st.sidebar:
-    st.title('Chatbot')
+    st.title('Ask your queries here')
 
 # Write a message if none exists
 if "messages" not in st.session_state.keys():
@@ -19,7 +19,7 @@ for message in st.session_state.messages:
 # Clear all messages
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
-st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+st.sidebar.button('Clear History', on_click=clear_chat_history)
 
 # Take and display user prompt
 if prompt := st.chat_input():
@@ -33,7 +33,7 @@ def get_response(prompt_input):
                              json = {"query": prompt_input})
     response = json.loads(response.content.decode())
     print(response)
-    return response['response']
+    return response['answer']
 
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":

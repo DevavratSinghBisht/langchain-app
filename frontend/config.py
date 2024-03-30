@@ -1,1 +1,1 @@
-BACKED_URL = "http://172.17.0.1:8000/chat"
+BACKED_URL = "http://172.17.0.1:8000/query"
