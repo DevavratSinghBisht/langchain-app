@@ -2,6 +2,7 @@ streamlit>=1.32.2
 fastapi[all]>=0.110.0
 uvicorn[standard]>=0.29.0
 langchain>=0.1.13
+langchain-community
 huggingface_hub>=0.21.4
 sentence_transformers>=2.6.0
 faiss-cpu>=1.8.0

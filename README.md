@@ -21,7 +21,7 @@ Cd into the repo and run `docker compose up`
 ## For running the app locally without docker.
 
 1. Cd into the repo and install the dependencies using `requirements.txt` located at the root.
-2. In a terminal `cd frontend`, edit config.py to  `BACKED_URL = "http://localhost:8000/chat"`  and run `streamlit run Home.py`
+2. In a terminal `cd frontend`, make sure in config.py that `BACKED_URL` points to  `"http://localhost:8000/chat"`  and run `streamlit run Home.py`
 3. Use another terminal to `cd backend` and run `uvicorn main:app --reload`
 4. Frontend should be available at `localhost:8501` 
 5. Backend should be available at `localhost:8000` and the swagger documentation can be seen at `localhost:8080/docs`
